@@ -28,3 +28,11 @@ jobs:
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+  test:
+    name: Testing
+    needs: lint
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Test
+        run: echo "executing unit tests . . ."
