@@ -36,3 +36,15 @@ jobs:
     steps:
       - name: Test
         run: echo "executing unit tests . . ."
+
+    build:
+    name: build docker image
+    needs: test
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: build image
+        run: docker build . -t ${{ secrets.DOCKERHUB_USERNAME }}/ci-final-frontend:latest
+      - name: delete built image
+        run: docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/ci-final-frontend:latest
