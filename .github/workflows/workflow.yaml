@@ -37,7 +37,7 @@ jobs:
       - name: Test
         run: echo "executing unit tests . . ."
 
-    build:
+  build:
     name: build docker image
     needs: test
     runs-on: ubuntu-22.04
