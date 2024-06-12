@@ -74,3 +74,17 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/ci-final-frontend:${{ github.ref_name }}, ${{ secrets.DOCKERHUB_USERNAME }}/ci-final-frontend:latest
+
+  deploy:
+    name: deploy backend
+    needs: deliver
+    runs-on: ubuntu-22.04
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: cifrontend.zapto.org
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: sudo ./deploy.sh
