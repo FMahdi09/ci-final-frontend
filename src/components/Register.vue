@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <h2>Register</h2>
+    <h2>Register test</h2>
     <input v-model="username" placeholder="Username" />
     <input v-model="password" type="password" placeholder="Password" />
     <button @click="register">Register</button>
