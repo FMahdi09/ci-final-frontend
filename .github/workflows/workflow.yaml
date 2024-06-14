@@ -53,6 +53,7 @@ jobs:
     name: push docker image to docker hub
     needs: build
     runs-on: ubuntu-22.04
+    if: github.ref_type == 'tag'
     steps:
       -
         name: Checkout
@@ -79,6 +80,7 @@ jobs:
     name: deploy backend
     needs: deliver
     runs-on: ubuntu-22.04
+    if: github.ref_type == 'tag'
     steps:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.3
