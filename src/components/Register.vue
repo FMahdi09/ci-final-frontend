@@ -15,7 +15,7 @@ import posthog from 'posthog-js';
 
 export default {
   data() {
-    const headerValue = posthog.getFeatureFlag('ci-register') === 'test' ? 'Test' : 'Control'; 
+    const headerValue = posthog.getFeatureFlag('ci-register') === 'test' ? 'Register' : 'Register2'; 
 
     return {
       username: '',
