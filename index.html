@@ -7,6 +7,10 @@
     <title>Todo App</title>
   </head>
   <body>
+    <script type="module">
+      import posthog from 'posthog-js'
+      posthog.init('phc_8lh8MoV5y67eIIiJvyoofkS6ahSTm8M4aooJifZYXRW', { api_host: 'https://eu.i.posthog.com' })
+    </script>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>

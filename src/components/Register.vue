@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <h2>Register test</h2>
+    <h2>{{ header }}</h2>
     <input v-model="username" placeholder="Username" />
     <input v-model="password" type="password" placeholder="Password" />
     <button @click="register">Register</button>
@@ -11,14 +11,18 @@
 
 <script>
 import {registerUser, loginUser} from '@/api';
+import posthog from 'posthog-js';
 
 export default {
   data() {
+    const headerValue = posthog.getFeatureFlag('ci-register') === 'test' ? 'Test' : 'Control'; 
+
     return {
       username: '',
       password: '',
       error: '',
-      success: ''
+      success: '',
+      header: headerValue
     };
   },
   methods: {
