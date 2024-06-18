@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = 'http://cibackend.zapto.org';
+//const API_URL = 'http://cibackend.zapto.org';
+const API_URL = 'http://localhost:3000';
 
 const readTodos = async (token) => {
     let res = await axios.get(`${API_URL}/todos`, {
@@ -53,6 +54,20 @@ const undoneTodo = async (id, token) => {
     return res.data;
 }
 
+const updateTodos = async (token) => {
+    let res = await axios.put(
+        `${API_URL}/todos/updateTodos`,
+        {},
+        {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+    );
+
+    return res.data;
+}
+
 const registerUser = async (username, password) => {
     let res = await axios.post(`${API_URL}/auth/register`, { username, password });
     return res.data;
@@ -68,6 +83,7 @@ export {
     createTodo,
     doneTodo,
     undoneTodo,
+    updateTodos,
     registerUser,
     loginUser
 }
