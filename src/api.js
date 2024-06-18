@@ -1,7 +1,6 @@
 import axios from "axios";
 
-//const API_URL = 'http://cibackend.zapto.org';
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://cibackend.zapto.org';
 
 const readTodos = async (token) => {
     let res = await axios.get(`${API_URL}/todos`, {
