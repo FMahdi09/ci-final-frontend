@@ -1,6 +1,7 @@
 <template>
   <div class="todo-item" @click="done">
-    <span :class="{ done: todo.done }">{{ todo.name }}</span>
+    <span :class="{ done: todo.done }" class="todo-text">{{ todo.name }}</span>
+    <span class="date">{{ new Date(todo.createdAt).toLocaleString() }}</span>
     <Checkmark :done="todo.done" />
   </div>
 </template>
@@ -44,6 +45,10 @@ export default {
   transition: background-color 0.2s;
 }
 
+.todo-text {
+  color: #ffffff;
+}
+
 .todo-item:hover {
   background-color: #2c3e50;
 }
@@ -51,5 +56,12 @@ export default {
 .done {
   text-decoration: line-through;
   color: #5c5c5c;
+}
+
+.date {
+  margin-left: auto;
+  margin-right: 10px;
+  font-size: 0.8em;
+  color: #888;
 }
 </style>

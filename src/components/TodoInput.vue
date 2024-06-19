@@ -26,7 +26,7 @@ export default {
 .todo-input {
   line-height: 1.6;
   font-size: 15px;
-  color: var(--color-text);
+  color: #ffffff;
   width: 400px;
   padding: 10px 20px;
   margin: 10px;
