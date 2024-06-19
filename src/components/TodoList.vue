@@ -28,7 +28,7 @@ export default {
       // Uncomment the following line for feature-toggle
       //toggleSort: posthog.getFeatureFlag('sort-todos-by-date') === 'enabled'
       // Delete the following line
-      toggleSort: true
+      toggleSort: posthog.isFeatureEnabled('ci-sorting')
     }
   },
   computed: {
