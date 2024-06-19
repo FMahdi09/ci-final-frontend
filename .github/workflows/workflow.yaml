@@ -10,7 +10,17 @@ on:
 jobs:
 
   lint:
+    name: Linting stage
+    runs-on: ubuntu-22.04
+    steps: 
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Lint
+        run: npx eslint .
+
+  analyze:
     name: Static Code Analysis
+    needs: lint
     runs-on: ubuntu-22.04
     permissions: read-all
     steps:
@@ -31,7 +41,7 @@ jobs:
 
   test:
     name: Testing
-    needs: lint
+    needs: analyze
     runs-on: ubuntu-22.04
     steps:
       - name: Test
