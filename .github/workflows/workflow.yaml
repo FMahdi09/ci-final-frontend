@@ -45,9 +45,13 @@ jobs:
     name: Testing
     needs: analyze
     runs-on: ubuntu-22.04
-    steps:
-      - name: Test
-        run: echo "executing unit tests . . ."
+    steps: 
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
+      - name: run tests
+        run: npm test
 
   build:
     name: build docker image
