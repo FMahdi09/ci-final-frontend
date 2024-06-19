@@ -16,6 +16,7 @@
 import Todo from "@/components/Todo.vue";
 import TodoInput from "@/components/TodoInput.vue";
 import {createTodo, doneTodo, readTodos, undoneTodo, updateTodos} from "@/api";
+import posthog from 'posthog-js';
 // Uncomment the following line for feature-toggle
 //import posthog from 'posthog-js';
 
@@ -28,7 +29,7 @@ export default {
       // Uncomment the following line for feature-toggle
       //toggleSort: posthog.getFeatureFlag('sort-todos-by-date') === 'enabled'
       // Delete the following line
-      toggleSort: posthog.isFeatureEnabled('ci-sorting')
+      toggleSort: true
     }
   },
   computed: {
