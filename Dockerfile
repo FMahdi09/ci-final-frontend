@@ -1,5 +1,5 @@
 ## build stage
-FROM node:18-alpine as builder
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ COPY ./ ./
 RUN npm run build
 
 ## serve stage
-FROM nginx:1.26.0-alpine as serve
+FROM nginx:1.26.0-alpine AS serve
 
 COPY --from=builder /app/dist /var/www
 
