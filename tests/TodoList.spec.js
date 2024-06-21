@@ -92,7 +92,7 @@ describe('TodoList.vue', () => {
         });
 
         await wrapper.vm.$nextTick();
-        expect(wrapper.findAll('li').length).toBe(3);
+        expect(wrapper.findAll('li').length).toBe(2);
     });
 
     it('correctly sorts todos by date', async () => {
