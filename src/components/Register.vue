@@ -3,7 +3,8 @@
     <h2>{{ header }}</h2>
     <input v-model="username" placeholder="Username" />
     <input v-model="password" type="password" placeholder="Password" />
-    <button @click="register">Register</button>
+    <button @click="register"
+    v-bind:class = "(header === 'Register')?'blue':'red'">Register</button>
     <p v-if="error">{{ error }}</p>
     <p v-if="success">{{ success }}</p>
   </div>
@@ -48,6 +49,13 @@ export default {
   flex-direction: column;
   width: 300px;
   margin: auto;
+}
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
 }
 input {
   margin: 10px 0;
